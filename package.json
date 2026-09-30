@@ -5,11 +5,11 @@
   "scripts": {
     "dev": "vite",
     "build": "node scripts/prerender.mjs",
-    "preview": "wrangler pages dev dist",
+    "preview": "wrangler dev",
     "content": "node scripts/build-content.mjs",
     "typecheck": "npm run content && tsc --noEmit",
     "new-post": "node scripts/new-post.mjs",
-    "deploy": "npm run build && wrangler pages deploy dist"
+    "deploy": "npm run build && wrangler deploy"
   },
   "repository": {
     "type": "git",

@@ -65,39 +65,42 @@ npm run dev        # http://localhost:5173, hot-reloads on markdown changes
 | --- | --- |
 | `npm run dev` | Dev server; regenerates content when markdown changes |
 | `npm run build` | Full production build + prerender into `dist/` |
-| `npm run preview` | Serve `dist/` through the real Cloudflare Pages runtime |
+| `npm run preview` | Serve `dist/` through the real Workers runtime |
 | `npm run typecheck` | TypeScript, no emit |
 | `npm run new-post -- "Title"` | Scaffold a new article |
-| `npm run deploy` | Build and push straight to Cloudflare Pages |
+| `npm run deploy` | Build and deploy straight to Cloudflare |
 
 Use `npm run preview` rather than a plain static server — it uses Wrangler, so
 routing, headers and the 404 page behave exactly as they will in production.
 
 ---
 
-## Deploying to Cloudflare Pages
+## Deploying to Cloudflare
 
-### One-time setup (Git integration — recommended)
+The site runs as a **Worker with static assets** (`wrangler.jsonc`), which is
+Cloudflare's current replacement for Pages. The Worker is named `iangabaraevdev`
+and `iangabaraev.dev` is attached to it as a custom domain.
 
-1. **Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git**, and pick this repository.
-2. Build settings:
-   - Framework preset: **None**
-   - Build command: `npm run build`
-   - Build output directory: `dist`
-   - Node version: `22` (set the `NODE_VERSION` environment variable, or rely on `.node-version`)
-3. **Custom domains → Set up a custom domain → `iangabaraev.dev`.** Because the domain is already on Cloudflare, the DNS records are created for you. Add `www.iangabaraev.dev` too if you want it to redirect.
+### Push-to-deploy (Workers Builds)
 
-From then on, every push to `main` deploys to production and every pull request
-gets its own preview URL.
+**Dashboard → Workers & Pages → `iangabaraevdev` → Settings → Build → Connect**,
+and pick this repository. Build settings:
 
-### Alternative: deploy from your machine
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Root directory: `/`
+
+Node 22 is picked up from `.node-version`. After that, every push to `main`
+deploys to production.
+
+### Deploying from your machine
 
 ```bash
 npx wrangler login
 npm run deploy
 ```
 
-### After the first deploy
+### After a deploy
 
 - Submit `https://iangabaraev.dev/sitemap.xml` in Google Search Console.
 - Confirm `https://iangabaraev.dev/robots.txt` and `/rss.xml` resolve.
@@ -124,9 +127,14 @@ dist/  index.html, blog/*.html, tags/*.html, 404.html,
 
 A few decisions worth knowing about if you change things:
 
-**Routes are flat `.html` files, not `dir/index.html`.** Cloudflare Pages
-308-redirects `/blog` to `/blog/` when it finds a directory index. Flat files
-keep URLs trailing-slash-free and matching the canonical tags.
+**Routes are flat `.html` files, not `dir/index.html`.** A directory index makes
+Cloudflare 308-redirect `/blog` to `/blog/`. Flat files plus
+`html_handling: "auto-trailing-slash"` keep URLs trailing-slash-free and matching
+the canonical tags, and redirect `/blog.html` to `/blog`.
+
+**Don't set `Content-Type` in `public/_headers`.** Workers static assets derive
+it from the file extension and *append* whatever `_headers` adds, so setting it
+manually produces a duplicated, malformed header.
 
 **Article bodies are recovered from the DOM on hydration**, not shipped twice in
 a JSON blob. React never re-diffs the children of a `dangerouslySetInnerHTML`
