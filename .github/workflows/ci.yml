@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify prerendered output
+        run: |
+          test -f dist/index.html
+          test -f dist/sitemap.xml
+          test -f dist/rss.xml
+          test -f dist/robots.txt
+          test -f dist/404.html
+          grep -q '<h1' dist/index.html
+          echo "Prerendered $(find dist -name '*.html' | wc -l) HTML pages"

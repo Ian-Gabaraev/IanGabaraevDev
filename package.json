@@ -1,0 +1,53 @@
+{
+  "name": "iangabaraev-dev",
+  "version": "1.0.0",
+  "description": "Personal engineering blog at iangabaraev.dev",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/prerender.mjs",
+    "preview": "wrangler pages dev dist",
+    "content": "node scripts/build-content.mjs",
+    "typecheck": "npm run content && tsc --noEmit",
+    "new-post": "node scripts/new-post.mjs",
+    "deploy": "npm run build && wrangler pages deploy dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ian-Gabaraev/IanGabaraevDev.git"
+  },
+  "keywords": [],
+  "author": "Ian Gabaraev",
+  "license": "UNLICENSED",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Ian-Gabaraev/IanGabaraevDev/issues"
+  },
+  "homepage": "https://github.com/Ian-Gabaraev/IanGabaraevDev#readme",
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router": "^7.18.4"
+  },
+  "devDependencies": {
+    "@shikijs/markdown-it": "^4.4.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/markdown-it": "^14.2.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^15.0.2",
+    "markdown-it-anchor": "^10.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1",
+    "wrangler": "^4.145.0"
+  },
+  "private": true,
+  "allowScripts": {
+    "workerd@1.20260930.2": true,
+    "esbuild@0.28.1": true,
+    "fsevents@2.3.3": true
+  }
+}
