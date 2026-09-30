@@ -15,7 +15,7 @@ export default function Home() {
 
         <div className="relative animate-rise pt-16 pb-4 sm:pt-24">
           <p className="label-mono">
-            <span className="text-[var(--accent)]">~/</span> software engineer
+            <span className="text-[var(--accent)]">~/</span> {site.author.role}
           </p>
 
           <h1 className="mt-5 text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl">
@@ -26,8 +26,9 @@ export default function Home() {
           <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">{site.tagline}</p>
 
           <p className="mt-4 max-w-2xl text-[0.9375rem] leading-relaxed text-[var(--fg-muted)]">
-            I build and break backend systems for a living. This is where I write down what I learn — architecture
-            decisions, performance work, and the details that only show up in production.
+            I lead teams building software end to end — from the data model to the interface people actually touch.
+            This is where I write down what I learn: architecture decisions, performance work, and the details that
+            only show up in production.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -69,17 +70,19 @@ export default function Home() {
       <section className="mt-14">
         <div className="flex items-baseline justify-between gap-4 border-b border-[var(--border)] pb-4">
           <h2 className="text-sm font-semibold tracking-tight">Latest</h2>
-          <Link
-            to="/blog"
-            className="font-mono text-xs text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
-          >
-            all posts →
-          </Link>
+          {latest.length > 0 && (
+            <Link
+              to="/blog"
+              className="font-mono text-xs text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+            >
+              all posts →
+            </Link>
+          )}
         </div>
 
         {latest.length === 0 ? (
           <p className="py-12 text-sm text-[var(--fg-muted)]">
-            No posts yet. Drop a markdown file in <code className="font-mono">content/posts/</code> to get started.
+            Nothing published yet — the first article is on its way.
           </p>
         ) : (
           <div className="mt-2">

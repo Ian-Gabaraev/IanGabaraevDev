@@ -1,10 +1,12 @@
 import { site } from '../lib/site';
 
 const STACK = [
-  { label: 'Languages', value: 'Python, TypeScript, Go, SQL' },
-  { label: 'Backend', value: 'FastAPI, Django, Node.js, gRPC' },
+  { label: 'Languages', value: 'TypeScript, Python, Go, SQL' },
+  { label: 'Frontend', value: 'React, Next.js, Tailwind, Vite' },
+  { label: 'Backend', value: 'Node.js, FastAPI, Django, gRPC' },
   { label: 'Data', value: 'PostgreSQL, Redis, Kafka, ClickHouse' },
   { label: 'Infra', value: 'Docker, Kubernetes, Terraform, Cloudflare' },
+  { label: 'Practice', value: 'Architecture, code review, mentoring' },
 ];
 
 export default function About() {
@@ -15,17 +17,20 @@ export default function About() {
           <span className="text-[var(--accent)]">~/</span> about
         </p>
         <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{site.author.name}</h1>
+        <p className="mt-3 font-mono text-sm text-[var(--fg-muted)]">{site.author.role}</p>
       </header>
 
       <div className="prose mt-10 max-w-2xl">
         <p>
-          I'm a software engineer focused on backend systems — the parts of a product that have to stay correct,
-          observable and fast while everything around them changes.
+          I'm a lead fullstack engineer. I work across the whole stack — data models, APIs, and the interfaces people
+          actually touch — and most of my job is making sure those layers agree with each other under load, over time,
+          and across a team.
         </p>
         <p>
           This site is my engineering notebook. I write long-form about the problems I actually hit: schema migrations
-          that can't take downtime, queues that silently reorder, caches that lie, and the architectural decisions that
-          looked obvious in a design doc and much less so six months later.
+          that can't take downtime, queues that silently reorder, caches that lie, render paths that quietly cost
+          seconds, and the architectural decisions that looked obvious in a design doc and much less so six months
+          later.
         </p>
         <p>
           Everything here is written in markdown, rendered at build time, and served as static HTML from Cloudflare's

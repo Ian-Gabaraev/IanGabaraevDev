@@ -14,23 +14,27 @@ export function TagsIndex() {
         </p>
         <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Topics</h1>
         <p className="mt-3 text-[0.9375rem] text-[var(--fg-muted)]">
-          {tags.length} topic{tags.length === 1 ? '' : 's'} across the archive.
+          {tags.length === 0
+            ? 'Topics will appear here as articles are published.'
+            : `${tags.length} topic${tags.length === 1 ? '' : 's'} across the archive.`}
         </p>
       </header>
 
-      <ul className="mt-8 grid gap-2 sm:grid-cols-2">
-        {tags.map((tag) => (
-          <li key={tag.slug}>
-            <Link
-              to={`/tags/${tag.slug}`}
-              className="surface group flex items-center justify-between rounded-lg px-4 py-3 transition-colors hover:border-[var(--border-strong)]"
-            >
-              <span className="font-mono text-sm transition-colors group-hover:text-[var(--accent)]">{tag.tag}</span>
-              <span className="font-mono text-xs text-[var(--fg-faint)]">{tag.count}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {tags.length > 0 && (
+        <ul className="mt-8 grid gap-2 sm:grid-cols-2">
+          {tags.map((tag) => (
+            <li key={tag.slug}>
+              <Link
+                to={`/tags/${tag.slug}`}
+                className="surface group flex items-center justify-between rounded-lg px-4 py-3 transition-colors hover:border-[var(--border-strong)]"
+              >
+                <span className="font-mono text-sm transition-colors group-hover:text-[var(--accent)]">{tag.tag}</span>
+                <span className="font-mono text-xs text-[var(--fg-faint)]">{tag.count}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

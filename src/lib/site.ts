@@ -10,7 +10,7 @@ export interface SiteConfig {
   tagline: string;
   description: string;
   url: string;
-  author: { name: string; email: string; twitter: string };
+  author: { name: string; role: string; email: string; twitter: string };
   locale: string;
   postsPerPage: number;
   nav: NavItem[];

@@ -31,7 +31,7 @@ function personSchema() {
     name: site.author.name,
     url: site.url,
     email: site.author.email,
-    jobTitle: 'Software Engineer',
+    jobTitle: site.author.role,
   };
 }
 
@@ -99,7 +99,7 @@ export function resolveMeta(pathname: string): PageMeta {
   if (path === '/blog') {
     return base(path, {
       title: 'Writing',
-      description: `All articles by ${site.author.name} on software engineering, systems design and developer tooling.`,
+      description: `All articles by ${site.author.name} on fullstack engineering, systems design and developer tooling.`,
       jsonLd: [
         websiteSchema(),
         breadcrumbSchema([
@@ -139,7 +139,7 @@ export function resolveMeta(pathname: string): PageMeta {
   if (path === '/about') {
     return base(path, {
       title: 'About',
-      description: `About ${site.author.name} — software engineer, writer, and the person behind this site.`,
+      description: `About ${site.author.name} — ${site.author.role}, writer, and the person behind this site.`,
       jsonLd: [
         websiteSchema(),
         { '@context': 'https://schema.org', '@type': 'AboutPage', url: absoluteUrl('/about'), mainEntity: personSchema() },

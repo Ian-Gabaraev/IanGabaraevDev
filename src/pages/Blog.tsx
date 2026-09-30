@@ -24,24 +24,31 @@ export default function Blog() {
         </p>
         <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Writing</h1>
         <p className="mt-3 max-w-xl text-[0.9375rem] leading-relaxed text-[var(--fg-muted)]">
-          {posts.length} article{posts.length === 1 ? '' : 's'} on engineering practice — architecture, performance,
-          tooling and the things that break at 3am.
+          {posts.length === 0
+            ? 'Notes on engineering practice — architecture, performance, tooling and the things that break at 3am.'
+            : `${posts.length} article${posts.length === 1 ? '' : 's'} on engineering practice — architecture, performance, tooling and the things that break at 3am.`}
         </p>
 
-        <div className="relative mt-6 max-w-sm">
-          <SearchIcon className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-[var(--fg-faint)]" />
-          <input
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Filter by title, topic or tag…"
-            aria-label="Filter articles"
-            className="w-full rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] py-2 pr-3 pl-9 text-sm text-[var(--fg)] placeholder:text-[var(--fg-faint)] focus:border-[var(--accent)] focus:outline-none"
-          />
-        </div>
+        {posts.length > 0 && (
+          <div className="relative mt-6 max-w-sm">
+            <SearchIcon className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-[var(--fg-faint)]" />
+            <input
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Filter by title, topic or tag…"
+              aria-label="Filter articles"
+              className="w-full rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] py-2 pr-3 pl-9 text-sm text-[var(--fg)] placeholder:text-[var(--fg-faint)] focus:border-[var(--accent)] focus:outline-none"
+            />
+          </div>
+        )}
       </header>
 
-      {results.length === 0 ? (
+      {posts.length === 0 ? (
+        <p className="py-16 text-sm leading-relaxed text-[var(--fg-muted)]">
+          Nothing published yet. The first article is on its way.
+        </p>
+      ) : results.length === 0 ? (
         <p className="py-16 text-sm text-[var(--fg-muted)]">
           Nothing matches <span className="font-mono text-[var(--fg)]">“{query}”</span>.
         </p>

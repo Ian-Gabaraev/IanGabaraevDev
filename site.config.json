@@ -1,23 +1,42 @@
 {
   "title": "Ian Gabaraev",
   "tagline": "Software engineering, systems, and the occasional deep dive.",
-  "description": "Technical writing on software engineering, distributed systems, backend architecture, and developer tooling by Ian Gabaraev.",
+  "description": "Technical writing on fullstack engineering, systems design, architecture and developer tooling by Ian Gabaraev, Lead Fullstack Software Engineer.",
   "url": "https://iangabaraev.dev",
   "author": {
     "name": "Ian Gabaraev",
+    "role": "Lead Fullstack Software Engineer",
     "email": "hi@iangabaraev.dev",
     "twitter": "@iangabaraev"
   },
   "locale": "en_US",
   "postsPerPage": 10,
   "nav": [
-    { "label": "Writing", "href": "/blog" },
-    { "label": "Tags", "href": "/tags" },
-    { "label": "About", "href": "/about" }
+    {
+      "label": "Writing",
+      "href": "/blog"
+    },
+    {
+      "label": "Tags",
+      "href": "/tags"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    }
   ],
   "social": [
-    { "label": "GitHub", "href": "https://github.com/Ian-Gabaraev" },
-    { "label": "LinkedIn", "href": "https://www.linkedin.com/in/iangabaraev" },
-    { "label": "RSS", "href": "/rss.xml" }
+    {
+      "label": "GitHub",
+      "href": "https://github.com/Ian-Gabaraev"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/iangabaraev"
+    },
+    {
+      "label": "RSS",
+      "href": "/rss.xml"
+    }
   ]
 }
