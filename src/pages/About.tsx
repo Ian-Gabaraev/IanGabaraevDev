@@ -34,6 +34,17 @@ const FACETS = [
   'Traveller',
 ];
 
+const BACKGROUND = [
+  {
+    label: 'Education',
+    value: 'MGIMO, Moscow — International Relations (Italy focus)',
+  },
+  {
+    label: 'Languages',
+    value: 'Russian · English · Italian · Ossetian',
+  },
+];
+
 const PROJECTS = [
   {
     name: 'BatSonar',
@@ -94,6 +105,12 @@ export default function About() {
           and across a team.
         </p>
         <p>
+          I studied International Relations at MGIMO in Moscow, specialising in Italy, and I speak four languages
+          fluently — Russian, English, Italian and Ossetian. It is not the usual route into this profession, but
+          learning a language is the same exercise as learning a system: absorb the rules, then spend much longer
+          learning where the rules quietly stop applying.
+        </p>
+        <p>
           I came to engineering from journalism, which turned out to be better preparation than it sounds. Both jobs are
           mostly about asking the uncomfortable question early, chasing a claim back to its source, and then explaining
           what you found to someone who doesn't have time for the long version. I still write for the same reason I
@@ -126,6 +143,19 @@ export default function About() {
           Cloudflare's edge. No tracking, no newsletter popup, no cookie banner.
         </p>
       </div>
+
+      <section className="mt-12">
+        <h2 className="label-mono mb-4">Background</h2>
+        <dl className="grid gap-px overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--border)] sm:grid-cols-2">
+          {BACKGROUND.map((item) => (
+            <div key={item.label} className="bg-[var(--bg)] px-4 py-3.5">
+              <dt className="label-mono">{item.label}</dt>
+              <dd className="mt-1.5 font-mono text-[13px] text-[var(--fg)]">{item.value}</dd>
+            </div>
+          ))}
+          {BACKGROUND.length % 2 === 1 && <div aria-hidden className="hidden bg-[var(--bg)] sm:block" />}
+        </dl>
+      </section>
 
       <section className="mt-12">
         <h2 className="label-mono mb-4">Projects</h2>

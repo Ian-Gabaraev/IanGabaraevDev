@@ -31,6 +31,17 @@ function personSchema() {
     name: site.author.name,
     url: site.url,
     jobTitle: site.author.role,
+    alumniOf: {
+      '@type': 'CollegeOrUniversity',
+      name: 'Moscow State Institute of International Relations (MGIMO)',
+      sameAs: 'https://en.wikipedia.org/wiki/Moscow_State_Institute_of_International_Relations',
+    },
+    knowsLanguage: [
+      { '@type': 'Language', name: 'Russian', alternateName: 'ru' },
+      { '@type': 'Language', name: 'English', alternateName: 'en' },
+      { '@type': 'Language', name: 'Italian', alternateName: 'it' },
+      { '@type': 'Language', name: 'Ossetian', alternateName: 'os' },
+    ],
     description:
       'Lead fullstack software engineer, scuba diver, mountain biker, drone pilot and photographer, travelling full time since 2020.',
     knowsAbout: [
@@ -170,7 +181,7 @@ export function resolveMeta(pathname: string): PageMeta {
   if (path === '/about') {
     return base(path, {
       title: 'About',
-      description: `About ${site.author.name} — ${site.author.role}, scuba diver, mountain biker, drone pilot and photographer, travelling full time for six years.`,
+      description: `About ${site.author.name} — ${site.author.role}. MGIMO graduate, scuba diver, mountain biker, drone pilot, photographer, six years on the road.`,
       jsonLd: [
         websiteSchema(),
         { '@context': 'https://schema.org', '@type': 'AboutPage', url: absoluteUrl('/about'), mainEntity: personSchema() },
