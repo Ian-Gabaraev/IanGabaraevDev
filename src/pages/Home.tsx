@@ -28,7 +28,8 @@ export default function Home() {
           <p className="mt-4 max-w-2xl text-[0.9375rem] leading-relaxed text-[var(--fg-muted)]">
             I lead teams building software end to end — from the data model to the interface people actually touch.
             This is where I write down what I learn: architecture decisions, performance work, and the details that
-            only show up in production.
+            only show up in production. Former journalist, scuba diver and photographer, writing from somewhere along
+            six years of non-stop travel.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">

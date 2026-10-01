@@ -30,8 +30,23 @@ function personSchema() {
     '@id': `${site.url}/#person`,
     name: site.author.name,
     url: site.url,
-    email: site.author.email,
     jobTitle: site.author.role,
+    description:
+      'Lead fullstack software engineer, scuba diver, photographer and former journalist, travelling full time since 2020.',
+    knowsAbout: [
+      'Software engineering',
+      'Systems design',
+      'Software architecture',
+      'Web performance',
+      'Fullstack development',
+      'Photography',
+      'Scuba diving',
+    ],
+    // Every profile that represents the same person, so search engines can
+    // consolidate them into a single entity.
+    sameAs: [site.author.altSite, ...site.social.filter((s) => s.href.startsWith('http')).map((s) => s.href)].filter(
+      (href, index, all) => all.indexOf(href) === index,
+    ),
   };
 }
 
@@ -139,7 +154,7 @@ export function resolveMeta(pathname: string): PageMeta {
   if (path === '/about') {
     return base(path, {
       title: 'About',
-      description: `About ${site.author.name} — ${site.author.role}, writer, and the person behind this site.`,
+      description: `About ${site.author.name} — ${site.author.role}, scuba diver, photographer, former journalist, and six years a full-time traveller.`,
       jsonLd: [
         websiteSchema(),
         { '@context': 'https://schema.org', '@type': 'AboutPage', url: absoluteUrl('/about'), mainEntity: personSchema() },

@@ -1,42 +1,28 @@
 {
   "title": "Ian Gabaraev",
   "tagline": "Software engineering, systems, and the occasional deep dive.",
-  "description": "Technical writing on fullstack engineering, systems design, architecture and developer tooling by Ian Gabaraev, Lead Fullstack Software Engineer.",
+  "description": "Technical writing on fullstack engineering, systems design and architecture by Ian Gabaraev — Lead Fullstack Software Engineer, scuba diver, photographer, former journalist, and six years a full-time traveller.",
   "url": "https://iangabaraev.dev",
   "author": {
     "name": "Ian Gabaraev",
     "role": "Lead Fullstack Software Engineer",
-    "email": "hi@iangabaraev.dev",
-    "twitter": "@iangabaraev"
+    "twitter": "@iangabaraev",
+    "altSite": "https://iangabaraev.com"
   },
   "locale": "en_US",
   "postsPerPage": 10,
   "nav": [
-    {
-      "label": "Writing",
-      "href": "/blog"
-    },
-    {
-      "label": "Tags",
-      "href": "/tags"
-    },
-    {
-      "label": "About",
-      "href": "/about"
-    }
+    { "label": "Writing", "href": "/blog" },
+    { "label": "Tags", "href": "/tags" },
+    { "label": "About", "href": "/about" }
   ],
   "social": [
-    {
-      "label": "GitHub",
-      "href": "https://github.com/Ian-Gabaraev"
-    },
-    {
-      "label": "LinkedIn",
-      "href": "https://www.linkedin.com/in/iangabaraev"
-    },
-    {
-      "label": "RSS",
-      "href": "/rss.xml"
-    }
+    { "label": "GitHub", "href": "https://github.com/Ian-Gabaraev" },
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/in/iangabaraev" },
+    { "label": "Instagram", "href": "https://www.instagram.com/iangabaraev/" },
+    { "label": "Pexels", "href": "https://www.pexels.com/@ian-gabaraev-2149212079/" },
+    { "label": "Quora", "href": "https://www.quora.com/profile/Ian-Gabaraev" },
+    { "label": "iangabaraev.com", "href": "https://iangabaraev.com" },
+    { "label": "RSS", "href": "/rss.xml" }
   ]
 }
