@@ -1,11 +1,15 @@
 import { site } from '../lib/site';
 
 const STACK = [
-  { label: 'Languages', value: 'TypeScript, Python, Go, SQL' },
-  { label: 'Frontend', value: 'React, Next.js, Tailwind, Vite' },
-  { label: 'Backend', value: 'Node.js, FastAPI, Django, gRPC' },
-  { label: 'Data', value: 'PostgreSQL, Redis, Kafka, ClickHouse' },
-  { label: 'Infra', value: 'Docker, Kubernetes, Terraform, Cloudflare' },
+  { label: 'Languages', value: 'Python, TypeScript, JavaScript, Elixir, Java, C' },
+  { label: 'Backend', value: 'Django, FastAPI, Phoenix, asyncio' },
+  { label: 'Frontend', value: 'React, Redux, Bootstrap' },
+  { label: 'APIs', value: 'REST, GraphQL, gRPC, WebSockets' },
+  { label: 'Realtime & voice', value: 'VoIP, WebRTC, FreeSWITCH, MQTT' },
+  { label: 'Queues & caching', value: 'RabbitMQ, Redis, Memcached' },
+  { label: 'Data', value: 'PostgreSQL, MongoDB, Elasticsearch' },
+  { label: 'Infra', value: 'Docker, NGINX, AWS, Azure' },
+  { label: 'AI tooling', value: 'Claude Code, GitHub Copilot' },
   { label: 'Practice', value: 'Architecture, code review, mentoring' },
 ];
 
