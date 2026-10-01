@@ -9,9 +9,14 @@ const STACK = [
   { label: 'Realtime & voice', value: 'VoIP, WebRTC, FreeSWITCH, MQTT' },
   { label: 'Queues & caching', value: 'RabbitMQ, Kafka, Celery, Redis, Memcached' },
   { label: 'Data', value: 'PostgreSQL, MongoDB, Elasticsearch, SQLAlchemy, Alembic' },
-  { label: 'AWS', value: 'Lambda, S3, RDS, SQS, SNS' },
-  { label: 'Azure', value: 'Functions, Container Apps' },
-  { label: 'Infra', value: 'Docker, NGINX' },
+  {
+    label: 'AWS',
+    value:
+      'Lambda, API Gateway, S3, RDS, DynamoDB, SQS, SNS, EventBridge, Step Functions, CloudFront, Cognito, IAM, CloudWatch, CloudTrail',
+  },
+  { label: 'Azure', value: 'Functions, Container Apps, Blob Storage, Azure SQL, Key Vault' },
+  { label: 'Infra & IaC', value: 'Docker, NGINX, CloudFormation, Bicep' },
+  { label: 'CI/CD', value: 'GitHub Actions, GitLab CI' },
   { label: 'AI tooling', value: 'Claude Code, GitHub Copilot' },
   { label: 'Practice', value: 'Architecture, code review, mentoring' },
 ];

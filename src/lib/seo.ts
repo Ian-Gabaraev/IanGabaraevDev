@@ -41,6 +41,8 @@ function personSchema() {
       'Concurrency',
       'Cloud architecture',
       'Serverless',
+      'Infrastructure as code',
+      'CI/CD',
       'Python',
       'TypeScript',
       'Elixir',
