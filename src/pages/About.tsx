@@ -16,6 +16,7 @@ const STACK = [
   },
   { label: 'Azure', value: 'Functions, Container Apps, Blob Storage, Azure SQL, Key Vault' },
   { label: 'Infra & IaC', value: 'Docker, NGINX, CloudFormation, Bicep' },
+  { label: 'Signal & embedded', value: 'DSP, FFT, PortAudio, KISS FFT, Raspberry Pi' },
   { label: 'CI/CD', value: 'GitHub Actions, GitLab CI' },
   { label: 'AI tooling', value: 'Claude Code, GitHub Copilot' },
   { label: 'Practice', value: 'Architecture, code review, mentoring' },
@@ -27,8 +28,22 @@ const FACETS = [
   'Mountain biker',
   'Drone pilot',
   'Photographer',
+  'Bioacoustics',
   'Former journalist',
   'Traveller',
+];
+
+const PROJECTS = [
+  {
+    name: 'BatSonar',
+    blurb:
+      'An app suite for monitoring bat activity. Ultrasonic audio is captured and processed in real time on a Raspberry Pi — FFT and DSP in C — then relayed over MQTT to a mobile monitor for visualisation. Species are identified by models I trained on ultrasound I recorded myself. Published openly for educational use.',
+    links: [
+      { label: 'Bat-Sonar', href: 'https://github.com/Ian-Gabaraev/Bat-Sonar' },
+      { label: 'Listener', href: 'https://github.com/Ian-Gabaraev/Bat-Sonar-Listener' },
+      { label: 'Mobile Monitor', href: 'https://github.com/Ian-Gabaraev/Bat-Sonar-Mobile-Monitor' },
+    ],
+  },
 ];
 
 /** Context for each link in site.social, keyed by label. */
@@ -90,6 +105,13 @@ export default function About() {
           long way down a trail with no signal and a broken derailleur teaches the same lesson in a different accent.
         </p>
         <p>
+          A recurring side interest is bioacoustics and signal processing. I built BatSonar, a suite for monitoring bat
+          activity from their echolocation calls — ultrasound well above human hearing, captured and run through an FFT
+          pipeline in C on a Raspberry Pi, with species classification from models I trained on recordings I collected
+          myself. It is the kind of problem I like: real-time constraints, noisy inputs, cheap hardware, and an answer
+          you can check against the animal flying over your head.
+        </p>
+        <p>
           This site is my engineering notebook. I write long-form about the problems I actually hit: schema migrations
           that can't take downtime, queues that silently reorder, caches that lie, render paths that quietly cost
           seconds, and the architectural decisions that looked obvious in a design doc and much less so six months
@@ -97,6 +119,32 @@ export default function About() {
           Cloudflare's edge. No tracking, no newsletter popup, no cookie banner.
         </p>
       </div>
+
+      <section className="mt-12">
+        <h2 className="label-mono mb-4">Projects</h2>
+        <ul className="space-y-4">
+          {PROJECTS.map((project) => (
+            <li key={project.name} className="rounded-lg border border-[var(--border)] p-5">
+              <h3 className="font-mono text-sm text-[var(--fg)]">{project.name}</h3>
+              <p className="mt-2 text-[0.9375rem] leading-relaxed text-[var(--fg-muted)]">{project.blurb}</p>
+              <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+                {project.links.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-mono text-xs text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+                    >
+                      {link.label} →
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <section className="mt-12">
         <h2 className="label-mono mb-4">Stack</h2>
