@@ -38,6 +38,7 @@ function personSchema() {
       'Systems design',
       'Software architecture',
       'Distributed systems',
+      'Concurrency',
       'Python',
       'TypeScript',
       'Elixir',

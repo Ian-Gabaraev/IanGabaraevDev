@@ -2,7 +2,8 @@ import { site } from '../lib/site';
 
 const STACK = [
   { label: 'Languages', value: 'Python, TypeScript, JavaScript, Elixir, Java, C' },
-  { label: 'Backend', value: 'Django, FastAPI, Phoenix, asyncio' },
+  { label: 'Backend', value: 'Django, FastAPI, Phoenix' },
+  { label: 'Runtime & concurrency', value: 'ASGI, Gunicorn, uWSGI, gthread, greenlets, asyncio' },
   { label: 'Frontend', value: 'React, Redux, Tailwind, Bootstrap' },
   { label: 'APIs', value: 'REST, GraphQL, gRPC, WebSockets' },
   { label: 'Realtime & voice', value: 'VoIP, WebRTC, FreeSWITCH, MQTT' },
@@ -90,6 +91,7 @@ export default function About() {
               <dd className="mt-1.5 font-mono text-[13px] text-[var(--fg)]">{item.value}</dd>
             </div>
           ))}
+          {STACK.length % 2 === 1 && <div aria-hidden className="hidden bg-[var(--bg)] sm:block" />}
         </dl>
       </section>
 
