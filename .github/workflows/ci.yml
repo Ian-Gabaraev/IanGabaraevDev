@@ -33,3 +33,11 @@ jobs:
           test -f dist/404.html
           grep -q '<h1' dist/index.html
           echo "Prerendered $(find dist -name '*.html' | wc -l) HTML pages"
+
+      - name: Deploy to Cloudflare
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy

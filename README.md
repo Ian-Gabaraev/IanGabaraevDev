@@ -81,21 +81,28 @@ The site runs as a **Worker with static assets** (`wrangler.jsonc`), which is
 Cloudflare's current replacement for Pages. The Worker is named `iangabaraevdev`
 and `iangabaraev.dev` is attached to it as a custom domain.
 
-### Push-to-deploy (Workers Builds)
+### Push-to-deploy (GitHub Actions)
 
-**Dashboard → Workers & Pages → `iangabaraevdev` → Settings → Build → Connect**,
-and pick this repository. Build settings:
+Every push to `main` runs `.github/workflows/ci.yml`, which typechecks,
+builds, verifies the prerendered output, and then deploys with
+`cloudflare/wrangler-action`.
 
-- Build command: `npm run build`
-- Deploy command: `npx wrangler deploy`
-- Root directory: `/`
+Two repository secrets are required
+(**Settings → Secrets and variables → Actions**):
 
-Node 22 is picked up from `.node-version`. After that, every push to `main`
-deploys to production.
+| Secret | Value |
+| --- | --- |
+| `CLOUDFLARE_API_TOKEN` | An API token with the **Edit Cloudflare Workers** template |
+| `CLOUDFLARE_ACCOUNT_ID` | `2876407cd2c7a39f5b1e957817be3074` |
 
-`dist/` is gitignored, so it has to be built in CI. As a safety net,
-`wrangler.jsonc` declares a `build.command`, which means `wrangler deploy`
-builds the site itself even if the CI build command is left blank.
+`dist/` is gitignored, so it is always built in CI. `wrangler.jsonc` also
+declares a `build.command`, so `wrangler deploy` rebuilds the site itself
+regardless of how it is invoked.
+
+> Cloudflare's own **Workers Builds** Git integration was tried first. The
+> dashboard reported the repository as connected, but no build was ever
+> triggered and Cloudflare never posted a check run to GitHub, so deployment
+> was moved into Actions instead.
 
 ### Deploying from your machine
 
@@ -163,5 +170,3 @@ live in [`site.config.json`](./site.config.json). Nothing else is hardcoded.
 
 The colour system is defined once in `src/styles.css` as CSS custom properties
 under `:root` and `.dark`. Change `--accent` there and the whole site follows.
-
-<!-- build trigger check -->
