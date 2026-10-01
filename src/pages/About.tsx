@@ -17,6 +17,7 @@ const STACK = [
   { label: 'Azure', value: 'Functions, Container Apps, Blob Storage, Azure SQL, Key Vault' },
   { label: 'Infra & IaC', value: 'Docker, NGINX, CloudFormation, Bicep' },
   { label: 'Signal & embedded', value: 'DSP, FFT, PortAudio, KISS FFT, Raspberry Pi' },
+  { label: 'ML', value: 'PyTorch, audio classification' },
   { label: 'CI/CD', value: 'GitHub Actions, GitLab CI' },
   { label: 'AI tooling', value: 'Claude Code, GitHub Copilot' },
   { label: 'Practice', value: 'Architecture, code review, mentoring' },
@@ -37,12 +38,18 @@ const PROJECTS = [
   {
     name: 'BatSonar',
     blurb:
-      'An app suite for monitoring bat activity. Ultrasonic audio is captured and processed in real time on a Raspberry Pi — FFT and DSP in C — then relayed over MQTT to a mobile monitor for visualisation. Species are identified by models I trained on ultrasound I recorded myself. Published openly for educational use.',
+      'An app suite for monitoring bat activity. Ultrasonic audio is captured and processed in real time on a Raspberry Pi — FFT and DSP in C — then relayed over MQTT to a mobile monitor for visualisation. Species are identified by PyTorch models I trained on ultrasound I recorded myself. Published openly for educational use.',
     links: [
       { label: 'Bat-Sonar', href: 'https://github.com/Ian-Gabaraev/Bat-Sonar' },
       { label: 'Listener', href: 'https://github.com/Ian-Gabaraev/Bat-Sonar-Listener' },
       { label: 'Mobile Monitor', href: 'https://github.com/Ian-Gabaraev/Bat-Sonar-Mobile-Monitor' },
     ],
+  },
+  {
+    name: 'PassiveSonar',
+    blurb:
+      'Noise monitoring for enclosed spaces — short-term rentals, offices, shared housing. It measures loudness continuously on a Raspberry Pi, visualises the trend, and pushes automated alerts over Telegram when levels cross a threshold, so a problem is caught while it is still happening.',
+    links: [{ label: 'passivesonar', href: 'https://github.com/Ian-Gabaraev/passivesonar' }],
   },
 ];
 

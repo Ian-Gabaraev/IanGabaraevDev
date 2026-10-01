@@ -46,6 +46,7 @@ function personSchema() {
       'Digital signal processing',
       'Bioacoustics',
       'Machine learning',
+      'PyTorch',
       'Python',
       'TypeScript',
       'Elixir',
