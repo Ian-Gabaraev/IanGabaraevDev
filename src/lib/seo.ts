@@ -39,6 +39,8 @@ function personSchema() {
       'Software architecture',
       'Distributed systems',
       'Concurrency',
+      'Cloud architecture',
+      'Serverless',
       'Python',
       'TypeScript',
       'Elixir',
