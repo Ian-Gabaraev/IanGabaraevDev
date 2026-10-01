@@ -93,6 +93,10 @@ and pick this repository. Build settings:
 Node 22 is picked up from `.node-version`. After that, every push to `main`
 deploys to production.
 
+`dist/` is gitignored, so it has to be built in CI. As a safety net,
+`wrangler.jsonc` declares a `build.command`, which means `wrangler deploy`
+builds the site itself even if the CI build command is left blank.
+
 ### Deploying from your machine
 
 ```bash

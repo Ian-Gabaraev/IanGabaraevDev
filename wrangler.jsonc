@@ -2,6 +2,11 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "iangabaraevdev",
   "compatibility_date": "2026-09-30",
+  // Runs before `wrangler deploy` and `wrangler dev`, so a deploy always has a
+  // freshly built dist/ even if the CI build command is not configured.
+  "build": {
+    "command": "npm run build"
+  },
   "assets": {
     "directory": "./dist",
     "html_handling": "auto-trailing-slash",
