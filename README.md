@@ -163,3 +163,5 @@ live in [`site.config.json`](./site.config.json). Nothing else is hardcoded.
 
 The colour system is defined once in `src/styles.css` as CSS custom properties
 under `:root` and `.dark`. Change `--accent` there and the whole site follows.
+
+<!-- build trigger check -->
