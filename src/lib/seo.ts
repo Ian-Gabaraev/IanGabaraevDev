@@ -260,7 +260,6 @@ export function renderHeadTags(meta: PageMeta): string {
     `<meta property="og:url" content="${escapeHtml(meta.canonical)}" />`,
     `<meta property="og:image" content="${escapeHtml(meta.image)}" />`,
     '<meta name="twitter:card" content="summary_large_image" />',
-    `<meta name="twitter:creator" content="${escapeHtml(site.author.twitter)}" />`,
     `<meta name="twitter:title" content="${escapeHtml(meta.fullTitle)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(meta.description)}" />`,
     `<meta name="twitter:image" content="${escapeHtml(meta.image)}" />`,
