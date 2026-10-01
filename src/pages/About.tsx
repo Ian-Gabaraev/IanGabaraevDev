@@ -21,7 +21,15 @@ const STACK = [
   { label: 'Practice', value: 'Architecture, code review, mentoring' },
 ];
 
-const FACETS = ['Engineer', 'Scuba diver', 'Photographer', 'Former journalist', 'Traveller'];
+const FACETS = [
+  'Engineer',
+  'Scuba diver',
+  'Mountain biker',
+  'Drone pilot',
+  'Photographer',
+  'Former journalist',
+  'Traveller',
+];
 
 /** Context for each link in site.social, keyed by label. */
 const NOTES: Record<string, string> = {
@@ -75,10 +83,11 @@ export default function About() {
           connection that drops halfway through a deploy.
         </p>
         <p>
-          Away from the keyboard I'm usually underwater or behind a camera. I'm a scuba diver and a photographer, and
-          the two overlap more often than not. Diving is also the best lesson in operational discipline I know:
-          check your equipment, plan the dive, dive the plan, and respect the fact that the environment does not care
-          how experienced you are.
+          Away from the keyboard I'm usually underwater, on a bike, or flying something. I dive, I shoot stills and
+          drone footage, and I ride mountain bikes — I own more of them than is strictly reasonable — most often on
+          remote trails in Vietnam. Diving is the best lesson in operational discipline I know: check your equipment,
+          plan the dive, dive the plan, and accept that the environment does not care how experienced you are. Being a
+          long way down a trail with no signal and a broken derailleur teaches the same lesson in a different accent.
         </p>
         <p>
           This site is my engineering notebook. I write long-form about the problems I actually hit: schema migrations

@@ -32,7 +32,7 @@ function personSchema() {
     url: site.url,
     jobTitle: site.author.role,
     description:
-      'Lead fullstack software engineer, scuba diver, photographer and former journalist, travelling full time since 2020.',
+      'Lead fullstack software engineer, scuba diver, mountain biker, drone pilot and photographer, travelling full time since 2020.',
     knowsAbout: [
       'Software engineering',
       'Systems design',
@@ -50,7 +50,9 @@ function personSchema() {
       'WebRTC',
       'VoIP',
       'Photography',
+      'Aerial photography',
       'Scuba diving',
+      'Mountain biking',
     ],
     // Every profile that represents the same person, so search engines can
     // consolidate them into a single entity.
@@ -164,7 +166,7 @@ export function resolveMeta(pathname: string): PageMeta {
   if (path === '/about') {
     return base(path, {
       title: 'About',
-      description: `About ${site.author.name} — ${site.author.role}, scuba diver, photographer, former journalist, and six years a full-time traveller.`,
+      description: `About ${site.author.name} — ${site.author.role}, scuba diver, mountain biker, drone pilot and photographer, travelling full time for six years.`,
       jsonLd: [
         websiteSchema(),
         { '@context': 'https://schema.org', '@type': 'AboutPage', url: absoluteUrl('/about'), mainEntity: personSchema() },
