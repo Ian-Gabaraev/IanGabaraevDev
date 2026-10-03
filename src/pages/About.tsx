@@ -68,6 +68,7 @@ const PROJECTS = [
 const NOTES: Record<string, string> = {
   GitHub: 'Code and side projects',
   LinkedIn: 'Work history',
+  Medium: 'Cross-posted writing',
   Instagram: 'Travel and photography',
   Pexels: 'Free-to-use photography',
   Quora: 'Answers, mostly about engineering',
@@ -214,6 +215,7 @@ export default function About() {
               </a>
             </li>
           ))}
+          {elsewhere.length % 2 === 1 && <li aria-hidden className="hidden bg-[var(--bg)] sm:block" />}
         </ul>
       </section>
     </div>
