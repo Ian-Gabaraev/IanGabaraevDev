@@ -71,6 +71,7 @@ const NOTES: Record<string, string> = {
   Medium: 'Cross-posted writing',
   Instagram: 'Travel and photography',
   Pexels: 'Free-to-use photography',
+  Shutterstock: 'Licensed stock photography',
   Quora: 'Answers, mostly about engineering',
   'iangabaraev.com': 'My other site',
 };
